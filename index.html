@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predictive Customer Analytics</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="title-bar">
+    <h1>Predictive Customer Analytics</h1>
+  </header>
+
+  <div id="loading" class="loading">Loading data…</div>
+
+  <div id="app" class="layout" hidden>
+    <!-- Slicer panel -->
+    <aside class="slicers">
+      <section class="slicer">
+        <h3>Subscription Status</h3>
+        <div class="chips" id="slicer-subscription"></div>
+      </section>
+      <section class="slicer">
+        <h3>Gender</h3>
+        <div class="chips" id="slicer-gender"></div>
+      </section>
+      <section class="slicer">
+        <h3>Category</h3>
+        <div class="chips" id="slicer-category"></div>
+      </section>
+      <section class="slicer">
+        <h3>Shipping Type</h3>
+        <div class="chips" id="slicer-shipping"></div>
+      </section>
+      <button id="reset" class="reset-btn">↺ Reset filters</button>
+    </aside>
+
+    <!-- Main canvas -->
+    <main class="canvas">
+      <!-- KPI cards -->
+      <div class="kpis">
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpi-customers">—</div>
+          <div class="kpi-label">Number of Customers</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpi-avg-amount">—</div>
+          <div class="kpi-label">Average Purchase Amount</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpi-avg-rating">—</div>
+          <div class="kpi-label">Average Review Rating</div>
+        </div>
+      </div>
+
+      <!-- Charts row 1 -->
+      <div class="charts-row">
+        <div class="chart-card">
+          <h2>% of Customers by Subscription Status</h2>
+          <div class="chart-wrap"><canvas id="chart-subscription"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h2>Revenue by Category</h2>
+          <div class="chart-wrap"><canvas id="chart-revenue-category"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h2>Sales by Category</h2>
+          <div class="chart-wrap"><canvas id="chart-sales-category"></canvas></div>
+        </div>
+      </div>
+
+      <!-- Charts row 2 -->
+      <div class="charts-row two">
+        <div class="chart-card">
+          <h2>Revenue by Age Group</h2>
+          <div class="chart-wrap"><canvas id="chart-revenue-age"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h2>Sales by Age Group</h2>
+          <div class="chart-wrap"><canvas id="chart-sales-age"></canvas></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="foot">
+    Rebuilt from <code>customer_data.csv</code> · Chart.js · Hosted on Vercel — no Power BI account required
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

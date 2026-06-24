@@ -1,0 +1,12 @@
+# Dependencies (none currently — all libs are CDN)
+node_modules/
+
+# Vercel
+.vercel/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
